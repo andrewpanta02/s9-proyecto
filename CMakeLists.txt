@@ -11,9 +11,9 @@ enable_testing()
 # ------------------------
 include(FetchContent)
 FetchContent_Declare(
-        Catch2
-        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v2.13.10
+Catch2
+GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+GIT_TAG v2.13.10
 )
 FetchContent_MakeAvailable(Catch2)
 
@@ -21,11 +21,11 @@ FetchContent_MakeAvailable(Catch2)
 # Aplicación Principal
 # ------------------------
 add_executable(Juego1
-        main.cpp
-        Jugador.cpp
-        Jugador.h
-        Enemigo.cpp
-        Enemigo.h
+main.cpp
+Jugador.cpp
+Jugador.h
+Enemigo.cpp
+Enemigo.h
 )
 
 # ------------------------
