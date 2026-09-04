@@ -1,0 +1,21 @@
+# CMake build directories
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# CLion project files
+.idea/
+
+# Compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+CTestTestfile.cmake
+Testing/
+
+cmake-build-*/
