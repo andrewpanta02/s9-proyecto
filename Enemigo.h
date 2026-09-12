@@ -46,7 +46,7 @@ public:
     int atacar() const;
 
     /*
-     * Mmetodo recibir danio:
+     * Mmetodo recibir daño:
      * Reduce la vida del enemigo.
      * La vida nunca puede ser menor que 0.
      */

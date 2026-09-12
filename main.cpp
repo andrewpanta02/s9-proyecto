@@ -20,7 +20,7 @@ int main() {
     std::cout << "\nEstadisticas del Enemigo" << std::endl;
     enemigo1.imprimirEstado();
 
-
+    
     /* -----------------------------------------------------------
      * FASE 2: ENCAPSULAMIENTO (Validación de Límites)
      * Probamos si tu constructor protege los datos (Vida 0-100, Ataque 1-20).

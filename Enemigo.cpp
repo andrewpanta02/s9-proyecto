@@ -68,7 +68,7 @@ int Enemigo::atacar() const {
 }
 
 /*
- * metodo recibir danio:
+ * metodo recibir daño:
  * Reduce la vida del enemigo.
  * La vida nunca puede ser menor que 0.
  */

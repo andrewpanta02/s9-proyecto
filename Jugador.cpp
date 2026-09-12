@@ -66,7 +66,7 @@ int Jugador::atacar() const {
 }
 
 /*
- * metodo recibir danio
+ * metodo recibir daño
  * Reduce la vida del jugador.
  * La vida nunca puede ser menor que 0.
  */
