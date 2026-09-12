@@ -33,9 +33,9 @@ int main() {
     std::cout << "Revisando limites (Esperado: Vida 100, Ataque 1):" << std::endl;
     jugadorBug.imprimirEstado();
 
-    //Esta prueba tiene que ser ajustado
+    // Esta prueba tiene que ser ajustado
     Enemigo e("Bug", -10, 99);
-    std::cout << "Revisando limites de Enemigo (Esperando: Vida , Ataque): " << std::endl;
+    std::cout << "Revisando limites de Enemigo (Esperando: Vida 0, Ataque 20): " << std::endl;
     e.imprimirEstado();
 
 
@@ -54,11 +54,95 @@ int main() {
     std::cout << "Poder de ataque de " << jugador1.getNombre() << ": "
               << jugador1.atacar() << std::endl;
 
-    /*
-     * RETO FINAL:
-     * Si todo lo anterior funciona, intenta crear un nuevo Jugador
-     * pidiendo los datos al usuario con 'std::cin'.
-     */
+
+    /* -----------------------------------------------------------
+     * FASE 4: SISTEMA DE DAÑO
+     * Probamos que Jugador y Enemigo puedan recibir daño.
+     * ----------------------------------------------------------- */
+    std::cout << "\n=== FASE 4: SISTEMA DE DAÑO ===" << std::endl;
+
+    // Creamos nuevos personajes para comenzar el combate con vida completa.
+    Jugador jugadorCombate("Carla", 100, 15);
+    Enemigo enemigoCombate("Ogro", 50, 10);
+
+    std::cout << "\nEstado inicial del combate:" << std::endl;
+    jugadorCombate.imprimirEstado();
+    enemigoCombate.imprimirEstado();
+
+    // El jugador ataca al enemigo
+    std::cout << "\n" << jugadorCombate.getNombre()
+              << " ataca al " << enemigoCombate.getNombre()
+              << " por " << jugadorCombate.atacar() << " de daño." << std::endl;
+
+    enemigoCombate.recibirDanio(jugadorCombate.atacar());
+
+    std::cout << "Estado del enemigo despues del ataque:" << std::endl;
+    enemigoCombate.imprimirEstado();
+
+    // El enemigo ataca al jugador
+    std::cout << "\n" << enemigoCombate.getNombre()
+              << " ataca a " << jugadorCombate.getNombre()
+              << " por " << enemigoCombate.atacar() << " de daño." << std::endl;
+
+    jugadorCombate.recibirDanio(enemigoCombate.atacar());
+
+    std::cout << "Estado del jugador despues del ataque:" << std::endl;
+    jugadorCombate.imprimirEstado();
+
+
+    /* -----------------------------------------------------------
+     * FASE 5: COMBATE FINAL
+     * El jugador y el enemigo se atacan hasta que uno llegue a 0 de vida.
+     * ----------------------------------------------------------- */
+    std::cout << "\n=== FASE 5: COMBATE FINAL ===" << std::endl;
+
+    Jugador jugadorFinal("Carla", 100, 15);
+    Enemigo enemigoFinal("Ogro", 50, 10);
+
+    int turno = 1;
+
+    while (jugadorFinal.getVida() > 0 && enemigoFinal.getVida() > 0) {
+
+        std::cout << "\n--- Turno " << turno << " ---" << std::endl;
+
+        // El jugador ataca
+        std::cout << jugadorFinal.getNombre()
+                  << " ataca al " << enemigoFinal.getNombre()
+                  << " por " << jugadorFinal.atacar()
+                  << " de daño." << std::endl;
+
+        enemigoFinal.recibirDanio(jugadorFinal.atacar());
+
+        std::cout << "Vida del enemigo: "
+                  << enemigoFinal.getVida() << std::endl;
+
+        // Revisamos si el enemigo sigue vivo
+        if (enemigoFinal.getVida() <= 0) {
+            break;
+        }
+
+        // El enemigo ataca
+        std::cout << enemigoFinal.getNombre()
+                  << " ataca a " << jugadorFinal.getNombre()
+                  << " por " << enemigoFinal.atacar()
+                  << " de daño." << std::endl;
+
+        jugadorFinal.recibirDanio(enemigoFinal.atacar());
+
+        std::cout << "Vida del jugador: "
+                  << jugadorFinal.getVida() << std::endl;
+
+        turno++;
+    }
+
+    // Determinar el ganador
+    std::cout << "\n=== RESULTADO DEL COMBATE ===" << std::endl;
+
+    if (jugadorFinal.getVida() > 0) {
+        std::cout << "Ganador: " << jugadorFinal.getNombre() << std::endl;
+    } else {
+        std::cout << "Ganador: " << enemigoFinal.getNombre() << std::endl;
+    }
 
     return 0;
 }

@@ -58,14 +58,27 @@ void Jugador::setVida(int _vida) {
     }
 }
 
-/* * MÉTODO ATACAR:
+/* * metodo atacar
  * Por ahora, solo debe retornar el valor del atributo ataque.
  */
 int Jugador::atacar() const {
     return ataque;
 }
 
-/* * MÉTODO imprimirEstado:
+/*
+ * metodo recibir danio
+ * Reduce la vida del jugador.
+ * La vida nunca puede ser menor que 0.
+ */
+void Jugador::recibirDanio(int cantidad) {
+    vida -= cantidad;
+
+    if (vida < 0) {
+        vida = 0;
+    }
+}
+
+/* * metodo imprimir estado
  * Debe mostrar los datos exactamente como pide el README.
  */
 void Jugador::imprimirEstado() const {
@@ -75,4 +88,3 @@ void Jugador::imprimirEstado() const {
     std::cout << "Vida: " << vida << std::endl;
     std::cout << "Ataque: " << ataque << std::endl;
 }
-

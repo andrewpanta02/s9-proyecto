@@ -46,7 +46,14 @@ public:
     int atacar() const;
 
     /*
-     * MÉTODO imprimirEstado:
+     * Mmetodo recibir danio:
+     * Reduce la vida del enemigo.
+     * La vida nunca puede ser menor que 0.
+     */
+    void recibirDanio(int cantidad);
+
+    /*
+     * metodo imprimir estado:
      * Imprime las estadísticas del enemigo.
      */
     void imprimirEstado() const;

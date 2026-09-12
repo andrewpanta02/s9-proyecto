@@ -34,11 +34,15 @@ public:
     // Setters (Usados en "SetVida con valor válido" y "SetVida no negativa")
     // Instrucción: Aquí también deben aplicar validación (0-100)
     void setVida(int _vida);
-    //
+
     void setAtaque(int _ataque);
+
     // Métodos de acción (Usado en TEST_CASE "Ataque")
     // Por ahora, solo debe retornar el valor del atributo ataque.
     int atacar() const;
+
+    // Recibe daño y reduce la vida del jugador.
+    void recibirDanio(int cantidad);
 
     /* * ACCIONES:
      * Imprime el estado actual siguiendo el formato del README.

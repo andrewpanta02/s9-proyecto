@@ -60,7 +60,7 @@ void Enemigo::setVida(int _vida) {
 }
 
 /*
- * MÉTODO ATACAR:
+ * metodo atacar:
  * Retorna el valor actual del atributo ataque.
  */
 int Enemigo::atacar() const {
@@ -68,7 +68,20 @@ int Enemigo::atacar() const {
 }
 
 /*
- * MÉTODO imprimirEstado:
+ * metodo recibir danio:
+ * Reduce la vida del enemigo.
+ * La vida nunca puede ser menor que 0.
+ */
+void Enemigo::recibirDanio(int cantidad) {
+    vida -= cantidad;
+
+    if (vida < 0) {
+        vida = 0;
+    }
+}
+
+/*
+ * metodo imprimir estado:
  * Imprime las estadísticas del enemigo.
  */
 void Enemigo::imprimirEstado() const {
